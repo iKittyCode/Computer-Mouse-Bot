@@ -49,11 +49,8 @@ function downloadFile(url, filename) {
   console.log('Download: ' + url + ' to ' + filename);
 
   // Make the request
-  request.head(url, downloaded);
-
-  // Here's the callback for when it is done
-  function downloaded(err, res, body) {
-    // Look at what it is
+  request.head(url, (err, res, body) => {
+  // Look at what it is
     // const type = res.headers['content-type'];
     // Figure out what file extension it should have
     // Figure out what file extension it should have
@@ -65,5 +62,10 @@ function downloadFile(url, filename) {
       .on('close', () => {
         console.log('image downloaded');
       });
-  }
+  
+  
+  });
+
+
+  
 }
